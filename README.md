@@ -21,7 +21,7 @@ cd task-manager
 #### Inside the task-manager run the docker-compose.yml
 
 ```bash
-  docker-compose --env-file-.env.prod up --build -d
+  docker-compose --env-file=.env.prod up --build -d
 ```
 
 #### Confirm if docker is running
