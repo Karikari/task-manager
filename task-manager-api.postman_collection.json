@@ -1,0 +1,378 @@
+{
+	"info": {
+		"_postman_id": "c7969c22-23b3-4409-837c-200e9d94d126",
+		"name": "task-manager-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35362015"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n       \"email\": \"kwakukarikari88@gmail.com\",\n    \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"Angela\",\n    \"last_name\": \"Serwaa\",\n    \"email\": \"angela.serwaaw1@gmail.com\",\n    \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4OTQ4NTk4LCJpYXQiOjE3Mzg5MzA1OTgsImp0aSI6ImMxODBmYWY3N2ZiYjQ0MjRiZjFmZjhjZThiZGU5M2RhIiwidXNlcl9pZCI6IjMyZDRkMWNkLWMzMmEtNGI3My05N2VlLTJiZTJlZTA0NDUzOSJ9.rdIUQvrEkjkZoEj5q01_MmZyraraBtLuq_-mhSXpr7Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"title\": \"New Task from teast master\",\n      \"description\": \"Description for New Task\",\n      \"status\": \"Progress\",\n      \"assign_to\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4ODU5Njg2LCJpYXQiOjE3Mzg4NTYwODYsImp0aSI6ImVjYmY3MjExY2I5MDRjMmY4OTdjMzc4ZjQ3Y2ZhMzk4IiwidXNlcl9pZCI6IjViNWU0YzM3LWUxMTQtNDVjZi05ZGU4LWI0NGRmMGZmNWUzNiJ9.ko17B8YEdkHHkH6zyHlRJzkzqX5WvRTSPsHYrhCUNUo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/tasks/a5005c3a-3a19-4cd9-b355-c32568af4f59",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks",
+						"a5005c3a-3a19-4cd9-b355-c32568af4f59"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4OTQ4NTk4LCJpYXQiOjE3Mzg5MzA1OTgsImp0aSI6ImMxODBmYWY3N2ZiYjQ0MjRiZjFmZjhjZThiZGU5M2RhIiwidXNlcl9pZCI6IjMyZDRkMWNkLWMzMmEtNGI3My05N2VlLTJiZTJlZTA0NDUzOSJ9.rdIUQvrEkjkZoEj5q01_MmZyraraBtLuq_-mhSXpr7Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4ODYxNzIzLCJpYXQiOjE3Mzg4NTgxMjMsImp0aSI6IjAzMGMzYTJmYzFlMDQwNzk5YzI1OGVhMzBmYmFiMzcyIiwidXNlcl9pZCI6ImExYjk3YTE1LWVlNWYtNDE0YS1iZDMzLTk1NTY0MmNhMDc2MCJ9.X3grJ08RctztNSHcg-Wi2rtwcF6xMiNbprHHbSa_F6U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"title\": \"New Task Updated New Data\",\n      \"description\": \"Windter Soldier\",\n      \"status\": \"Pending\",\n      \"assign_to\": \"5b5e4c37-e114-45cf-9de8-b44df0ff5e36\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/tasks/a5005c3a-3a19-4cd9-b355-c32568af4f59",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks",
+						"a5005c3a-3a19-4cd9-b355-c32568af4f59"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4ODU1OTY2LCJpYXQiOjE3Mzg4NTIzNjYsImp0aSI6Ijc4MmIyZTRjYTYxYzQwNTI4ZDA2YTJlM2NiZGE4MWFlIiwidXNlcl9pZCI6IjViNWU0YzM3LWUxMTQtNDVjZi05ZGU4LWI0NGRmMGZmNWUzNiJ9.Ri6GWgiKOWwmhC6rnUmtAlE9Rec9j1Pb9NqJejt8K3c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/tasks/8012ece9-2611-4764-905f-be46a0a41b71",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks",
+						"8012ece9-2611-4764-905f-be46a0a41b71"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assign Task to User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4ODU5Njg2LCJpYXQiOjE3Mzg4NTYwODYsImp0aSI6ImVjYmY3MjExY2I5MDRjMmY4OTdjMzc4ZjQ3Y2ZhMzk4IiwidXNlcl9pZCI6IjViNWU0YzM3LWUxMTQtNDVjZi05ZGU4LWI0NGRmMGZmNWUzNiJ9.ko17B8YEdkHHkH6zyHlRJzkzqX5WvRTSPsHYrhCUNUo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/tasks/assign/a5005c3a-3a19-4cd9-b355-c32568af4f59/user/a1b97a15-ee5f-414a-bd33-955642ca0760",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks",
+						"assign",
+						"a5005c3a-3a19-4cd9-b355-c32568af4f59",
+						"user",
+						"a1b97a15-ee5f-414a-bd33-955642ca0760"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Task Coments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4ODY1NjkyLCJpYXQiOjE3Mzg4NjIwOTIsImp0aSI6IjgzMDE4YjZmYjZiNDQ4NDFiNzY3MzIzNDcxYTllZDI4IiwidXNlcl9pZCI6ImExYjk3YTE1LWVlNWYtNDE0YS1iZDMzLTk1NTY0MmNhMDc2MCJ9.NNBYCRyrB7V8eI8Ji-6wDCpjFpxXi1A8SPhpYnzNndc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/tasks/a5005c3a-3a19-4cd9-b355-c32568af4f59/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks",
+						"a5005c3a-3a19-4cd9-b355-c32568af4f59",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Password Reset",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"jones.abrokwah@gmail.com\",\n    \"password\": \"1234567\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/password-reset",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"password-reset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Give Comments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4ODY1NjkyLCJpYXQiOjE3Mzg4NjIwOTIsImp0aSI6IjgzMDE4YjZmYjZiNDQ4NDFiNzY3MzIzNDcxYTllZDI4IiwidXNlcl9pZCI6ImExYjk3YTE1LWVlNWYtNDE0YS1iZDMzLTk1NTY0MmNhMDc2MCJ9.NNBYCRyrB7V8eI8Ji-6wDCpjFpxXi1A8SPhpYnzNndc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"comment\": \"Hello this task is difficult\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/tasks/a5005c3a-3a19-4cd9-b355-c32568af4f59/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tasks",
+						"a5005c3a-3a19-4cd9-b355-c32568af4f59",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

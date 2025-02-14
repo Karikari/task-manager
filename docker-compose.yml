@@ -1,0 +1,58 @@
+version: "3.8"
+
+services:
+  api:
+    build: .
+    restart: always
+    container_name: task-manager-api
+    command: python3 manage.py runserver 0.0.0.0:8000
+    env_file:
+      - .env.prod
+    volumes:
+      - .:/task-manager
+    ports:
+      - "8000:8000"
+    depends_on:
+      - task_db
+      - redis
+      - celery_worker
+
+  task_db:
+    image: postgres:12
+    env_file:
+      - .env.prod
+    restart: always
+    container_name: taskdb
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - task_data:/var/lib/postgresql/data/
+
+  redis:
+    image: redis
+    env_file:
+      - .env.prod
+    restart: always
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  celery_worker:
+    build: .
+    container_name: celery_worker
+    command: celery -A conf worker --loglevel=info
+    env_file:
+      - .env.prod
+    volumes:
+      - .:/task-manager
+    depends_on:
+      - redis
+
+
+volumes:
+  task_data:
